@@ -1,9 +1,4 @@
-ip = input()
-
-a, b, c = ip.split()
-a = int(a)
-b = int(b)
-c = int(c)
+a, b, c = map(int, input().split())
 
 try:
     result_a = int((-b + (b**2 - 4*a*c)**0.5) / (2*a))
@@ -14,5 +9,5 @@ try:
     else:
         print(f"Two same roots x={result_a}")
 
-except:
+except TypeError:
     print("No real root")
