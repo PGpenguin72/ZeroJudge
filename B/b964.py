@@ -1,10 +1,8 @@
 n = int(input())
 ls = list(map(int, input().split()))
-
 print(*sorted(ls))
-mx = 100
-mn = 0
-best, worth = True, True
+mx, mn, best, worth = 100, 0, True, True
+
 for item in ls:
     if 60 > item >= mn:
         mn = item
