@@ -4,7 +4,7 @@ while True:
         sym, opt = [""], []
         
         for item in datas:
-            if item.isdigit():
+            if item.isalpha():
                 opt.append(item)
             
             elif item == ")":
@@ -27,26 +27,8 @@ while True:
             
         while sym:
             opt.append(sym.pop(-1))
-        opt.pop(-1)
+        
+        print(" ".join(opt))
 
-        dic = {"+": lambda num_1, num_2: num_1 + num_2,
-               "-": lambda num_1, num_2: num_1 - num_2,
-               "*": lambda num_1, num_2: num_1 * num_2,
-               "/": lambda num_1, num_2: num_1 // num_2,
-               "%": lambda num_1, num_2: num_1 % num_2}
-        tmp = []
-        for i in range(len(opt)):
-            if opt[i] in dic:
-                sym.append(i)
-
-        while len(opt) != 1:
-            now = sym.pop(0)
-            op = opt.pop(now)
-            l, r = int(opt.pop(now-2)), int(opt.pop(now-2))
-            opt.insert(now-2, str(dic.get(op)(l, r)))
-            sym = [idx-2 for idx in sym]
-
-        print(int(*opt))
-    
     except EOFError:
         break
