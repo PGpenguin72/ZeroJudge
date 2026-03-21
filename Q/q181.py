@@ -1,11 +1,10 @@
-a , b = map(int, input().split())
-n = int(input())
-item = list(map(int, input().split()))
-sum = 0
+red_Light, green_Light = map(int, input().split())
+total_Second = 0
+child_Number = int(input())
+children_Time_data = list(map(int, input().split()))
 
-for i in item:
-    m = i%(a+b)
-    if m >= a:
-        sum += (a+b)-m
+for child_Time in children_Time_data:
+    wait_Time = child_Time % (red_Light+green_Light)
+    total_Second += ((green_Light+red_Light)-wait_Time if wait_Time >= red_Light else 0)
 
-print(sum)
+print(total_Second)
